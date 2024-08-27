@@ -18,7 +18,7 @@ jobs:
         run: sudo apt install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison
 
       - name: "[Kernel] Apply patches"
-        run: patch -p1 --dry-run < kernel/patch/uts.patch && patch -p1 --dry-run < kernel/patch/Makefile.patch
+        run: patch -p1 < kernel/patch/uts.patch && patch -p1 < kernel/patch/Makefile.patch
 
       - name: "[Kernel] Copy config"
         run: cp kernel/patch/.config kernel/source/.config
