@@ -5,11 +5,17 @@ on:
 
 jobs:
   say_hello:
-    runs-on: ubuntu-latest
+    runs-on: debian-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Print Hello World
-        run: echo "Hello World"
+      - name: Make Artifact
+        run: echo "Hello World" > hello-world.txt
+
+      - name: Example Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: hello-world-file
+          path: hello-world.txt
