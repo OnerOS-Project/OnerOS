@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  say_hello:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,11 +17,26 @@ jobs:
       - name: Install required packages
         run: sudo apt install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison
 
-      - name: Make Artifact
-        run: ls > hello-world.txt
+      - name: [Kernel] Apply patches
+        run: patch -p1 --dry-run < kernel/patch/uts.patch && patch -p1 --dry-run < kernel/patch/Makefile.patch
 
-      - name: Result
+      - name: [Kernel] Copy config
+        run: cp kernel/patch/.config kernel/source/.config
+
+      - name: [Kernel] Build
+        run: make
+      
+      - name: [Kernel] Build Modules
+        run: make modules
+
+      - name: [Kernel] Pack modules to tar file
+        run: make tarbz2-pkg
+
+      - name: [Artifact] Change result file
+        run: mv *.tar.bz2 core.tar.bz2
+
+      - name: [Artifact] Publish results
         uses: actions/upload-artifact@v4
         with:
-          name: test.txt
-          path: hello-world.txt
+          name: Core Build.tar.bz2
+          path: core.tar.bz2
