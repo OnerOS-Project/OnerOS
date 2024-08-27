@@ -27,7 +27,7 @@ jobs:
         run: cp kernel/patch/.config kernel/source/.config
 
       - name: "[Kernel] Build"
-        run: make
+        run: cd kernel/source && make
       
       - name: "[Kernel] Build Modules"
         run: make modules
