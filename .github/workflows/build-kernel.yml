@@ -11,14 +11,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       
+      - name: Get latest packages
+        uses: apt update
+  
       - name: Install required packages
-        uses: sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison
+        uses: apt install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison
 
       - name: Make Artifact
         run: ls > hello-world.txt
 
       - name: Result
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test.txt
           path: hello-world.txt
