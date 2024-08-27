@@ -1,0 +1,16 @@
+--- ../../kernel/source/Makefile	2024-08-27 18:45:44.756098322 +0000
++++ ../../kernel.modified/source/Makefile	2024-08-27 18:52:48.140095638 +0000
+@@ -1,9 +1,9 @@
+ # SPDX-License-Identifier: GPL-2.0
+-VERSION = 6
+-PATCHLEVEL = 11
++VERSION = 0
++PATCHLEVEL = 1
+ SUBLEVEL = 0
+-EXTRAVERSION = -rc5
+-NAME = Baby Opossum Posse
++EXTRAVERSION = 
++NAME = OnerOS Core
+ 
+ # *DOCUMENTATION*
+ # To see a list of typical targets execute "make help"
