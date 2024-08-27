@@ -1,5 +1,5 @@
---- ../../kernel/source/include/linux/uts.h	2024-08-27 18:45:52.876098270 +0000
-+++ ../../kernel.modified/source/include/linux/uts.h	2024-08-27 18:49:59.588096706 +0000
+--- kernel/source/include/linux/uts.h	2024-08-27 18:45:52.876098270 +0000
++++ kernel.modified/source/include/linux/uts.h	2024-08-27 18:49:59.588096706 +0000
 @@ -6,7 +6,7 @@
   * Defines for what uname() should return 
   */
