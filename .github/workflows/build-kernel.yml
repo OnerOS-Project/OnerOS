@@ -30,16 +30,16 @@ jobs:
         run: cd kernel/source && make
       
       - name: "[Kernel] Build Modules"
-        run: make modules
+        run: cd kernel/source && make modules
 
       - name: "[Kernel] Pack modules to tar file"
-        run: make tarbz2-pkg
+        run: cd kernel/source && make tarbz2-pkg
 
       - name: "[Artifact] Rename result file"
-        run: mv *.tar.bz2 core.tar.bz2
+        run: cd kernel/source && mv *.tar.bz2 core.tar.bz2
 
       - name: "[Artifact] Publish results"
         uses: actions/upload-artifact@v4
         with:
           name: Core Build.tar.bz2
-          path: core.tar.bz2
+          path: kernel/source/core.tar.bz2
