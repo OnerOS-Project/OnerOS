@@ -8,5 +8,5 @@ Your future OS
 
 
 **Thanks**
-- Linux Torvalds (for Linux kernel code): https://github.com/torvalds/linux
+- Linus Torvalds (for Linux kernel code): https://github.com/torvalds/linux
 
